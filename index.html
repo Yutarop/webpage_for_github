@@ -108,11 +108,11 @@ user.email=your-github-email@example.com</pre>
             <li><strong>2. 公開鍵の追加</strong></li>
             <li>次にブラウザでGitHubの管理画面を開き、右上のアイコンから「Settings」へ進んでください。</li>
             <div class="image-container">
-              <img src="images/img1.png" alt="サンプル画像" width="600" height="250">
+              <img src="images/img1.png" alt="サンプル画像" width="750" height="313">
             </div>
             <li>SSH and GPG keysを開き、New SSH Keyをクリックしてください。</li>
             <div class="image-container">
-              <img src="images/img2.png" alt="サンプル画像" width="600" height="250">
+              <img src="images/img2.png" alt="サンプル画像" width="750" height="320">
             </div>
             <li><strong>3. 接続の確認</strong></li>
             <li>公開鍵のアップロードが終わったら、以下のコマンドを実行し接続を確認してください。</li>
@@ -160,10 +160,10 @@ nothing to commit, working tree clean</pre>
         <div class="code-container">
           <pre class="gitCommand">git status</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
         </div>
-        <li>add/Yutaroのブランチに移動していることが確認できました。</li>
+        <li>add/your-nameのブランチに移動していることが確認できました。</li>
         <div class="code-container-answer">
           <pre id="gitCommand">
-On branch add/Yutaro
+On branch add/your-name
 nothing to commit, working tree clean</pre>
         </div>
         <div class="alert alert-warning up" role="alert">
@@ -184,12 +184,12 @@ nothing to commit, working tree clean</pre>
         <li>またここでも、git statusで現在の状況を確認してみましょう。</li>
         <div class="code-container-answer">
           <pre id="gitCommand">
-On branch add/Yutaro
+On branch add/your-name
 Untracked files:
 (use "git add <file>..." to include in what will be committed)
-<li id="red-letter">Yutaro.txt</li>nothing added to commit but untracked files present (use "git add" to track)</pre>
+<li id="red-letter">Your-name.txt</li>nothing added to commit but untracked files present (use "git add" to track)</pre>
         </div>
-        <li>Yutaro.txtが赤く表示され「未追跡ファイル」として表示されています。「未追跡ファイル」とは、Gitがこのファイルをまだ管理していないことを示しています。この「未追跡ファイル」を、git addコマンドで追跡を開始し、次にコミットすることで変更内容を保存する流れになります。</li>
+        <li>Your-name.txtが赤く表示され「未追跡ファイル」として表示されています。「未追跡ファイル」とは、Gitがこのファイルをまだ管理していないことを示しています。git addコマンドを使うことで、この「未追跡ファイル」の追跡を開始し、次にコミットをすることで変更内容を保存する流れになります。</li>
         <li><strong>4. 変更をコミットする</strong></li>
         <li>まず、現在のディレクトリ内の全ての変更をgit addコマンドでステージングエリアに追加します。ステージングエリアとは、コミットの準備を行う場所です。ファイルがステージングエリアに追加されると、Gitはそのファイルを「追跡」するようになり管理下に置きます。</li>
         <div class="code-container">
@@ -198,19 +198,19 @@ Untracked files:
         <li>ここでも、git statusで現在の状況を確認してみましょう。</li>
         <div class="code-container-answer">
           <pre id="gitCommand">
-On branch add/Yutaro
+On branch add/your-name
 Changes to be committed:
 (use "git restore --staged <file>..." to unstage)
-<li id="green-letter">new file: Yutaro.txt</li></pre>
+<li id="green-letter">new file: Your-name.txt</li></pre>
         </div>
-        <li>次は、Yutaro.txtが緑色で表示されコミット可能な状態であることを示しています。それでは、次にgit commitコマンドでコミットを行いましょう。コメントの部分では、変更内容が簡潔に伝わるように書きます。また、基本的に英語で書くため、DeepLなどを用いて翻訳しても構いません。</li>
+        <li>Your-name.txtが緑色で表示されコミット可能な状態であることを示しています。それでは、次にgit commitコマンドでコミットを行いましょう。コメントの部分では、変更内容が簡潔に伝わるように書きます。また、基本的に英語で書くため、DeepLなどを用いて翻訳しても構いません。</li>
         <div class="code-container">
           <pre class="gitCommand">git commit -m "コメント"</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
         </div>
         <li>再度、git statusで現在の状況を確認します。</li>
         <div class="code-container-answer">
           <pre id="gitCommand">
-On branch add/Yutaro
+On branch add/your-name
 nothing to commit, working tree clean</pre>
         </div>
         <li>「working tree clean」と表示されました。これは、現在の作業ディレクトリ内のすべてのファイルがコミットされ、Gitが追跡しているファイルに未保存の変更が残っていない状態を示しています。それでは、加えたコミットをリモートリポジトリに反映させましょう。</li>
@@ -220,15 +220,15 @@ nothing to commit, working tree clean</pre>
           <pre class="gitCommand">git push origin 自分のブランチ名</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
         </div>
         <li>上のコマンドを入力すると、ユーザー名とパスワードを求められます。パスワードはアクセストークンが必要なため以下に、アクセストークンの発行の手順を記載します。</li>
-        <li>・GitHubのプロフィールのSettingsを開き、一番下のDevelopper Settingsを選択 </li>
+        <li>GitHubのプロフィールのSettingsを開き、一番下のDevelopper Settingsを選択 </li>
         <div class="image-container">
-          <img src="images/token-1.png" alt="サンプル画像" width="600" height="332">
+          <img src="images/token-1.png" alt="サンプル画像" width="750" height="408">
         </div>
-        <li>・Personal access tokensの「Tokens(classic)」を選択 </li>
+        <li>Personal access tokensの「Tokens(classic)」を選択 </li>
         <div class="image-container">
-          <img src="images/token-2.png" alt="サンプル画像" width="600" height="150">
+          <img src="images/token-2.png" alt="サンプル画像" width="750" height="176">
         </div>
-        <li>・repoの項目にチェックを入れ、generate tokenをクリック</li>
+        <li>repoの項目にチェックを入れ、generate tokenをクリック</li>
         <div class="image-container">
           <img src="images/token-3.png" alt="サンプル画像" width="600" height="400">
         </div>
@@ -239,9 +239,9 @@ nothing to commit, working tree clean</pre>
         </div>
         <li>以上で、アクセストークンの発行の手順は終わりです。これで、パスワードにこのアクセストークンを入力すれば、コバ研内のリモートリポジトリにpushをすることができます。以下のように、自分が作ったブランチがあるか確認してみましょう。</li>
         <div class="image-container">
-          <img src="images/branch-check.png" alt="サンプル画像" width="700" height="275">
+          <img src="images/branch-check.png" alt="サンプル画像" width="750" height="290">
         </div>
-        <li>これで、自分の手元にあるPCがある日突然動かなくなったり、プログラムを変更しすぎてどのコードが悪さをしているか分からなくなった場合でも、変更前のプログラムがリモートに保存されているため安心して次の作業に移ることができます。</li>
+        <li>これで、自分の手元のPCがある日突然動かなくなったり、プログラムを変更しすぎてどのコードが悪さをしているか分からなくなった場合でも、変更前のプログラムがリモートに保存されているため安心して次の作業に移ることができます。</li>
       </ul>
     </section>
     <section class="tldr">
