@@ -158,3 +158,13 @@ pre {
 #gif {
     text-align: center;;
 }
+
+#red-letter{
+    font-size: 12px;
+    color: red;
+}
+
+#green-letter{
+    font-size: 12px;
+    color: green;
+}
