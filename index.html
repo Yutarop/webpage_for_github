@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github入門</title>
+    <link rel="icon" href="./images/ecop.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><strong>Github入門</strong>🔥</h1>
+            <!-- <div class="tags">
+                <span class="badge text-bg-primary">Github</span>
+            </div>  -->
+            <div class="date">
+                <p>最終更新日 2024年11月14日　投稿日 2024年11月14日 </p>
+            </div>
+        </header>
+        <section class="tldr">
+            <h2><strong>はじめに</strong></h2>
+            <ul>
+                <li>こんにちは。この記事では、小林研究室の三年生向けにGitHubの基本的な使い方についてご紹介したいと思います。つくばチャレンジまで残り一か月となり、あまりGitHubを使う機会がないかもしれませんが、将来的な就職先で使用する可能性もあるため、是非読んでみてください。この記事では、GitHubの最低限の基本のみを説明しますので、さらに理解を深めたい場合は、適宜参考書や他のブログ記事などを活用して知識を補っていただければと思います。</li>
+            </ul>
+        </section>
+        <section class="tldr">
+            <h2><strong>なぜGitHubを使うのか？</strong></h2>
+            <ul>
+                <li>まず初めに、GitHubとは何でしょうか？ChatGPTによると、GitHubは、<strong id="yellow_bg">世界中のプログラマーが利用している、ソースコードを共有・管理するためのオンラインプラットフォーム</strong>だそうです。この説明でなんとなくイメージはつくかもしれませんが、実際に使ってみないとその便利さは実感しにくいかもしれません。そこで、この記事の後半では、手を動かしながらGitHubの使い方に触れてもらいたいと思います。この章では、ハンズオンで実践的に学ぶ前に、GitHubの何が良いのか、コバ研内でGitHubを使うメリットを二つ紹介します。</li>
+                <li><strong>・バージョン管理</strong></li>
+                <li>皆さんも普段、授業や課題で作成したファイルを何度も編集し、更新していると思います。プログラムを書くときにも、コードを変更したり、新しい機能を加えたりすることがありますよね。このように、<strong id="yellow_bg">アップデートするにつれ変化するファイルの事を「バージョン」</strong>といいます。また、「過去の状態を残しておきたい」「間違えたときに簡単に元に戻したい」といった理由から、ファイルをコピーしてバックアップを取ることもあると思います。このように、<strong id="yellow_bg">同じファイルの異なるバージョンを保存・管理することを「バージョン管理」</strong>と言います。</li>
+                <li id="second-line">GitHubは、このバージョン管理を簡単に行えるツールです。ファイルの変更をバージョンとして記録しておき、後からどの段階にも戻れる仕組みを提供しています。これは、ポケモンなどのゲームでボスに挑戦する前にセーブすることに似ている気がします。ボスに挑む前にセーブしておけば、失敗してもやり直せるように、GitHubでも「ここでうまくいった！」というタイミングで保存しておくと、安心して次の改良に進めます。途中で問題が起きても簡単に戻れるので、安全に開発を進めることができます。</li>
+                <li><strong>・共同作業</strong></li>
+                <li>現在、3年生はロボットを動かすためのコードを一つのパソコンで管理しているとします。この場合、複数の人が同時にコードを編集するのが難しく、作業が重なってしまったり、誰かが行った変更が他の人に影響するリスクがあります。こうした課題に対して、GitHubを使えばより効率的に協力して作業することが可能です。GitHubには<strong id="yellow_bg">「branch（ブランチ）」</strong>という機能があり、ブランチごとに異なる作業や改良を進められます。たとえば、ある人は「GPSの開発」をするブランチで作業し、別の人は「ナビゲーションのパラメター」を調整するブランチで作業することができます。こうすることで、互いに干渉せずに開発を進められる上、最終的に全員の作業を統合して、一つの完成版にすることも簡単です。</li>
+            </ul>
+        </section>
+        <section class="tldr">
+          <h2><strong>コミットとは？</strong></h2>
+          <ul>
+              <li><strong id="yellow_bg">「コミット」とは、コードやファイルに対する変更を記録する操作のこと</strong>です。簡単に言うと、「この時点での作業内容を保存しておく」という行為です。コミットを行うことで、どの変更がどの時点で行われたのか、誰によって行われたのかを追跡できるようになります。そして、GitHubで管理しているファイルは、いつでも過去のコミット時の状態へ戻したり、コミット間を行き来したりすることができます。</li>
+              <div class="image-container">
+                <img src="images/commit.png" alt="サンプル画像" width="600" height="250">
+              </div>
+          </ul>
+        </section>
+        <section class="tldr">
+          <h2><strong>リポジトリとは？</strong></h2>
+          <ul>
+              <li><strong id="yellow_bg">「リポジトリ」はコミットを貯めていく保管庫です。</strong>リポジトリは、ローカルリポジトリとリモートリポジトリの2種類あります。ローカルリポジトリは、使用しているパソコン内に作成する自分専用のリポジトリです。他の人と一緒に使うことはありません。一方、リモートリポジトリとは、GitHubなどにホストされているリポジトリでありインターネット上に存在します。共同作業をする際には、複数人が自身のローカルリポジトリで作業を行い、リモートリポジトリに作業の更新を反映させます。</li>
+              <div class="image-container">
+                <img src="images/repo.png" alt="サンプル画像" width="500" height="330">
+              </div>
+          </ul>
+        </section>
+        <section class="tldr">
+          <h2><strong>ブランチとは？</strong></h2>
+          <ul>
+            <li><strong id="yellow_bg">「ブランチ」とは、プロジェクトの中でコードの「分岐点」を作り、複数の異なる作業を独立して行うことができる機能です。</strong> 通常、GitHubリポジトリには「メインのブランチ」があり、このメインブランチ（一般的に main または master）がプロジェクトの最終的な状態であり、動作が保証されているものを置く場所です。そのため、開発を進める中で新しい機能の追加やバグ修正など、異なる作業を行いたいときには、新しい「ブランチ」を作成して、その中で作業をします。これにより、メインのコードベースに影響を与えることなく、個別の作業ができます。
+            </li>
+            <div class="image-container">
+              <img src="images/branch-ex.png" alt="サンプル画像" width="700" height="190">
+            </div>
+            <li>さて、必要な理論の説明が一通り終わったので、実践編に移りましょう。</li>
+          </ul>
+        </section>
+        <section class="tldr">
+          <h2><strong>ユーザー登録</strong></h2>
+          <ul>
+            <li>まずGitHubのアカウントを持っていない方は、右側のURLからアカウントの作成をしてください。<a href="https://github.co.jp/" target="_blank">GitHub</a></li>
+            <li>ユーザー名とメールアドレスの設定を行います。自分が使っているサーバーを開き、以下のコマンドを入力してください。</li>
+            <li>「ユーザー名の設定」（your-github-user-nameを自分のGitHubのユーザーネームに変えてください。）</li>
+            <div class="code-container">
+              <pre class="gitCommand">git config --global user.name your-github-user-name</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+            </div>
+            <li>「メアドの設定」（your-github-email@example.comをGitHubに登録した時のメアドに変えてください。）</li>
+            <div class="code-container">
+              <pre class="gitCommand">git config –-global user.email your-github-email@example.com</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+            </div>
+            <li>「登録ができているか確認」</li>
+            <div class="code-container">
+              <pre class="gitCommand">git config –-list</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+            </div>
+            <li>以下のように、自分のユーザー名とメールアドレスが確認できたら登録完了です。</li>
+            <div class="code-container-answer">
+              <pre id="gitCommand">ubuntu@u235-22:~$ git config --list
+user.name=your-github-user-name
+user.email=your-github-email@example.com</pre>
+            </div>
+          </ul>
+      </section>
+      <section class="tldr">
+        <h2><strong>ssh接続の手順</strong></h2>
+        <ul>
+            <li><strong>1. 公開鍵と秘密鍵の作成</strong></li>
+            <li>ファイル名やパスワードの設定をするように聞かれますが、3回エンターを押すと、id_rsaとid_rsa.pubの2つの鍵が生成されます。</li>
+            <div class="code-container">
+              <pre class="gitCommand">ssh-keygen -t rsa</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+            </div>
+            <div class="code-container">
+              <pre class="gitCommand">cd ~/.ssh</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+            </div>
+            <li>catコマンドでプロンプトに公開鍵を表示させ、コピーをしてください。</li>
+            <div class="code-container">
+              <pre class="gitCommand">cat id_rsa.pub</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+            </div>
+            <li><strong>2. 公開鍵の追加</strong></li>
+            <li>次にブラウザでGitHubの管理画面を開き、右上のアイコンから「Settings」へ進んでください。</li>
+            <div class="image-container">
+              <img src="images/img1.png" alt="サンプル画像" width="600" height="250">
+            </div>
+            <li>SSH and GPG keysを開き、New SSH Keyをクリックしてください。</li>
+            <div class="image-container">
+              <img src="images/img2.png" alt="サンプル画像" width="600" height="250">
+            </div>
+            <li><strong>3. 接続の確認</strong></li>
+            <li>公開鍵のアップロードが終わったら、以下のコマンドを実行し接続を確認してください。</li>
+            <div class="code-container">
+              <pre class="gitCommand">ssh -T git@github.com</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+            </div>
+            <li>以下のように表示されたら接続は完了です。</li>
+            <div class="code-container-answer">
+              <pre id="gitCommand">Hi (user_name)! You've successfully authenticated, but GitHub does not provide shell access.</pre>
+            </div>
+        </ul>
+    </section>
+    <section class="tldr">
+      <h2><strong>新しいブランチを作りリモートリポジトリに変更を加えてみよう！</strong></h2>
+      <ul>
+        <li><strong>1. リモートリポジトリのコピーをローカルに持ってくる</strong></li>
+        <li>今回は、コバ研のorganization内にある、<strong>test_repoリポジトリ</strong>を使います。</li>
+        <div class="image-container">
+          <img src="images/test_repo.png" alt="サンプル画像" width="600" height="125">
+        </div>
+        <li>初めに、以下のコマンドで、リモートリポジトリの内容を自分のローカル環境にコピーします。</li>
+        <div class="code-container">
+          <pre class="gitCommand">git clone https://github.com/KBKN-Autonomous-Robotics-Lab/test_repo.git</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+        </div>
+        <li>クローンしたリポジトリ内に移動し、git statusで現在のブランチの状況を確認します。</li>
+        <div class="code-container">
+          <pre class="gitCommand">cd test_repo</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+        </div>
+        <div class="code-container">
+          <pre class="gitCommand">git status</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+        </div>
+        <li>今現在自分がmainにいることが分かります。</li>
+            <div class="code-container-answer">
+              <pre id="gitCommand">
+On branch main
+Your branch is up to date with 'origin/main'.
+nothing to commit, working tree clean</pre>
+            </div>
+        <li><strong>2. 新しいブランチを作成する</strong></li>
+        <li>新しいブランチを作成するには、以下のコマンドを使います。新しいブランチを作成し、そのブランチに切り替えます。今回は、branch名が他の人と被らないように、"add/自分の名前" にして下さい。</li>
+        <div class="code-container">
+          <pre class="gitCommand">git switch -c ブランチ名</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+        </div>
+        <div class="alert alert-warning up" role="alert">
+          <strong>ブランチの命名規則について</strong><br>
+          ブランチの命名規則は組織ごとに異なりますが、コバ研では以下の命名規則を採用しています。<br>
+          <strong>main:</strong> リポジトリのベースブランチ。ブランチ保護の観点から直接pushはしない。<br>
+          <strong>devel/branch_name:</strong> mainブランチに統合する予定の無い特別なブランチ。特定の機能を実装したりテストしたいときにのみ利用すること。<br>
+          <strong>feature/branch_name:</strong> 新しい機能を追加する際のブランチ。<br>
+          <strong>add/branch_name:</strong> ファイルなどを追加する際のブランチ。<br>
+          <strong>delete/branch_name:</strong> ファイルなどを削除する際のブランチ。<br>
+          <strong>fix/branch_name:</strong> バグの修正をする際のブランチ。<br>
+        </div>
+        <li><strong>3. ファイルを追加してみる</strong></li>
+        <li>次に、前回作ったbranchの中で作業をします。今回は単純に、テキストファイルを追加します。</li>
+        <div class="code-container">
+          <pre class="gitCommand">touch 自分の名前.txt</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+        </div>
+        <li><strong>4. 変更をコミットする</strong></li>
+        <li>まず、現在のディレクトリ内の全ての変更をステージングエリアに追加します。ステージングエリアとは、コミットの準備を行う場所です。</li>
+        <div class="code-container">
+          <pre class="gitCommand">git add .</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+        </div>
+        <li>その後、以下のコマンドでコミットを行います。コメントの部分では、変更内容が簡潔に伝わるように書きます。また、基本的に英語で書くため、DeepLなどを用いて翻訳しても構いません。</li>
+        <div class="code-container">
+          <pre class="gitCommand">git commit -m "コメント"</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+        </div>
+        <li><strong>5. コミットをリモートリポジトリに反映させる</strong></li>
+        <li>前回ローカルリポジトリに加えたコミットを、リモートリポジトリに反映させるために以下のコマンドを使います。</li>
+        <div class="code-container">
+          <pre class="gitCommand">git push origin 自分のブランチ名</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
+        </div>
+        <li>上のコマンドを入力すると、ユーザー名とパスワードを求められます。パスワードはアクセストークンが必要なため以下に、アクセストークンの発行の手順を記載します。</li>
+        <li>・GitHubのプロフィールのSettingsを開き、一番下のDevelopper Settingsを選択 </li>
+        <div class="image-container">
+          <img src="images/token-1.png" alt="サンプル画像" width="600" height="332">
+        </div>
+        <li>・Personal access tokensの「Tokens(classic)」を選択 </li>
+        <div class="image-container">
+          <img src="images/token-2.png" alt="サンプル画像" width="600" height="150">
+        </div>
+        <li>・repoの項目にチェックを入れ、generate tokenをクリック</li>
+        <div class="image-container">
+          <img src="images/token-3.png" alt="サンプル画像" width="600" height="400">
+        </div>
+        <div class="alert alert-danger" role="alert" id="alert-red">
+          <strong>注意</strong> <br>
+          一度発行したトークンは二度と表示されないため必ずメモしておいて下さい。<br>
+          また、トークンには有効期限があるためその都度更新、新規作成を行う必要があります。<br> 
+        </div>
+        <li>以上で、アクセストークンの発行の手順は終わりです。これで、パスワードにこのアクセストークンを入力すれば、コバ研内のリモートリポジトリにpushをすることができます。以下のように、自分が作ったブランチがあるか確認してみましょう。</li>
+        <div class="image-container">
+          <img src="images/branch-check.png" alt="サンプル画像" width="700" height="275">
+        </div>
+        <li>これで、自分の手元にあるPCがある日突然動かなくなったり、プログラムを変更しすぎてどのコードが悪さをしているか分からなくなった場合でも、変更前のプログラムがリモートに保存されているため安心して次の作業に移ることができます。</li>
+      </ul>
+    </section>
+    <section class="tldr">
+      <h2><strong>Pull Requestを出してみよう！</strong></h2>
+      <ul>
+        <li>最後に、自分が作業しているブランチをmainブランチに統合する方法について説明します。</li>
+        <li><strong>1. プルリクエストの作成</strong></li>
+        <li>コバ研のorganization内にあるtest_repoのレポジトリが置いてある場所に移動し、Pull requestsをクリックします。</li>
+        <div class="image-container">
+          <img src="images/pull-req1.png" alt="サンプル画像" width="750" height="379">
+        </div>
+        <li><strong>2. ブランチの選択</strong></li>
+        <li>ここでは、統合したいブランチを選択します。自分が作業をしているブランチを選択してください。</li>
+        <div class="image-container">
+          <img src="images/pull-req2.png" alt="サンプル画像" width="750" height="345">
+        </div>
+        <li><strong>3. コンフリクトの確認</strong></li>
+        <li>次に統合できるかを確認します。他の人が同じフォルダの同じファイルを編集していた場合コンフリクトが起きてしまい、統合することはできません。コンフリクトがある場合は、先に解決してから再度Pull Requestを作ってください。* 今回はコンフリクトが起きた時の解決方法は書いていません。</li>
+        <div class="image-container">
+          <img src="images/pull-req3.png" alt="サンプル画像" width="750" height="368">
+        </div>
+        <li><strong>4. プルリクエストにコメントを書く</strong></li>
+        <li>統合ができるかを確認できたら、作業していたブランチでどのような機能を実装したのかを記入します。</li>
+        <div class="image-container">
+          <img src="images/pull-req4.png" alt="サンプル画像" width="750" height="370">
+        </div>
+        <li><strong>5. コードレビューする人を指定</strong></li>
+        <li>その後、コードレビューをする人を指名します。最低1人以上は選択するようにしてください。また、今回の演習ではYutaropを選択してください。</li>
+        <div class="image-container">
+          <img src="images/pull-req5.png" alt="サンプル画像" width="750" height="396">
+        </div>
+        <li><strong>6. 完了</strong></li>
+        <li>最後にCreate pull requestをクリックしてプルリクエスト完了です。コードレビューで承認されたらブランチが統合されます。以上が、Pull requestを出すまでの一連の流れでした。</li>
+        <div class="image-container">
+          <img src="images/pull-req6.png" alt="サンプル画像" width="750" height="411">
+        </div>
+      </ul>
+    </section>
+    <section class="tldr">
+      <h2><strong>まとめ</strong></h2>
+      <ul>
+        <li>以上がGitHubの基本的な使い方です。つくばチャレンジで使用しているコードも、GitHubを使用することで効率的に管理でき、複数人が関わるプロジェクトでもスムーズに協力できるので活用してみてください。もしGitHubの使い方でわからないことがあれば、研究室にいる人たちに聞いてください。また、今回紹介した内容はGitHubを使うえでの最小限の説明に過ぎませんので、さらに深く学びたい方は以下のサイトなどを参考にしてみてください。お疲れ様でした。</li>
+      </ul>
+    </section>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            参考サイト①
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <a href="https://backlog.com/ja/git-tutorial/" target="_blank">サル先生のGit入門</a>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            参考サイト②
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <a href="https://qiita.com/renesisu727/items/248cb9468a402c622003" target="_blank">[初心者向け]GitとGitHubの使い方を徹底解説</a>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            参考サイト③
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <img id="git" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDVtNnlpbGlsM2NtYmtsMzNpb3JoczFiZjR1cWdwZGQzdHRla2h5NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oz9ZE2Oo9zRC/giphy.gif" alt="サンプルGIF画像">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
