@@ -189,9 +189,9 @@ Untracked files:
 (use "git add <file>..." to include in what will be committed)
 <li id="red-letter">Yutaro.txt</li>nothing added to commit but untracked files present (use "git add" to track)</pre>
         </div>
-        <li>Yutaro.txtが赤く表示され「未追跡ファイル」として表示されています。この「未追跡ファイル」を、git addコマンドで追跡を開始し、次にコミットすることで変更内容を保存する流れになります。</li>
+        <li>Yutaro.txtが赤く表示され「未追跡ファイル」として表示されています。「未追跡ファイル」とは、Gitがこのファイルをまだ管理していないことを示しています。この「未追跡ファイル」を、git addコマンドで追跡を開始し、次にコミットすることで変更内容を保存する流れになります。</li>
         <li><strong>4. 変更をコミットする</strong></li>
-        <li>まず、現在のディレクトリ内の全ての変更をステージングエリアに追加します。ステージングエリアとは、コミットの準備を行う場所です。</li>
+        <li>まず、現在のディレクトリ内の全ての変更をgit addコマンドでステージングエリアに追加します。ステージングエリアとは、コミットの準備を行う場所です。ファイルがステージングエリアに追加されると、Gitはそのファイルを「追跡」するようになり管理下に置きます。</li>
         <div class="code-container">
           <pre class="gitCommand">git add .</pre><button class="btn btn-primary copy-btn" onclick="copyCode()">コピー</button>
         </div>
