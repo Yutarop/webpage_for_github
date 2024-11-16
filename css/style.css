@@ -137,10 +137,24 @@ pre {
     color: white;
 }
 
+/* .image-container {
+    text-align: center; 
+    padding: 0px 5px 0px 5px; 
+} */
+
 .image-container {
     text-align: center; 
-    padding: 0px 5px 0px 5px;      
-}
+    /* max-width: 750px;
+    width: 100%;
+    margin: 0 auto; */
+  }
+  
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+  }
+  
 
 #yellow_bg {
     background-color: yellow;
